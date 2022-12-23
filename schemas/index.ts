@@ -58,6 +58,20 @@ export const schemaTypes = [
             type: 'image',
             fields: [
               {
+                title: 'Position',
+                name: 'position',
+                type: 'string',
+                options: {
+                  list: [
+                    {title: 'Center', value: 'center'},
+                    {title: 'Left', value: 'left'},
+                    {title: 'Right', value: 'right'},
+                  ],
+                  layout: 'radio',
+                  isHighlighted: true,
+                },
+              },
+              {
                 type: 'text',
                 name: 'alt',
                 title: 'Description',
@@ -70,7 +84,6 @@ export const schemaTypes = [
               hotspot: true,
             },
           },
-
           {
             type: 'code',
             options: {
@@ -83,20 +96,20 @@ export const schemaTypes = [
         name: 'date',
         title: 'Date',
         type: 'datetime',
-        validation: (Rule: {required: () => any}) => Rule.required(),
+        validation: (Rule) => Rule.required(),
       },
       {
         name: 'author',
         title: 'Author',
         type: 'reference',
         to: [{type: 'author'}],
-        validation: (Rule: {required: () => any}) => Rule.required(),
+        validation: (Rule) => Rule.required(),
       },
       {
         name: 'slug',
         type: 'slug',
         title: 'Slug',
-        validation: (Rule: {required: () => any}) => Rule.required(),
+        validation: (Rule) => Rule.required(),
       },
     ],
   },
